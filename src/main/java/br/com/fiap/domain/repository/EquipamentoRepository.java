@@ -51,6 +51,7 @@ public class EquipamentoRepository implements Repository<Equipamento, Long>{
             cs.registerOutParameter( 2, Types.BIGINT );
             cs.executeUpdate();
             equipamento.setId( cs.getLong( 2 ) );
+            cs.setString(3, equipamento.getDescrição());
             cs.close();
             connection.close();
         } catch (SQLException e) {
